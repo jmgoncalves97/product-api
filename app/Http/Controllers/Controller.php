@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
+/**
+ * @OA\Info(
+ *     title="Product API",
+ *     version="1.0.0"
+ * )
+ * 
+ * @OA\SecurityScheme(
+ *     securityScheme="bearerAuth",
+ *     type="http",
+ *     scheme="bearer",
+ *     bearerFormat="sanctum"
+ * )
+ */
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
@@ -35,6 +47,6 @@ class Controller extends BaseController
             return response()->json(['message' => 'Não encontrado'], 404);
         }
         $model->delete();
-        return response()->json(['message' => 'Removido com sucesso']);
+        return response()->json(['message' => 'Removido com sucesso'], 204);
     }
 }
