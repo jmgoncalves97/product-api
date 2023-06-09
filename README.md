@@ -1,3 +1,21 @@
+# Product API
+
+Rode o composer install:
+
+```sh
+composer install
+```
+
+Após a instalação, o script `./init.sh` será chamado para:
+
+* Instalar o MySQL
+* Criar o banco usado pela API.
+* Criar no banco o usuário utilizado pela API.
+* Rodar as migrações.
+* Gerar o swaager.json
+* Rodar os testes.
+* Startar a aplicação.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
