@@ -20,6 +20,12 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            'name' => 'Laravel',
+            'email' => 'laravel@example.com',
+            'password' => bcrypt('123'),
+        ]);
     }
 
     /**
