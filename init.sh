@@ -17,6 +17,9 @@ sudo mysqladmin -u root CREATE product_api;
 sudo mysql -u root -e "CREATE USER 'laravel'@'localhost' IDENTIFIED BY '';"
 sudo mysql -u root -e "GRANT ALL PRIVILEGES ON product_api.* TO 'laravel'@'localhost'"
 
+# Gerar a chave
+php artisan key:generate
+
 # Rodar migrations
 sudo php artisan migrate
 
@@ -27,4 +30,4 @@ sudo php artisan migrate
 php artisan test
 
 # Starta a aplicação
-php artisan serve
+PHP_CLI_SERVER_WORKERS=2 php artisan serve --port 8001

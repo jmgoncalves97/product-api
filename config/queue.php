@@ -71,6 +71,15 @@ return [
             'after_commit' => false,
         ],
 
+        'data_sync' => [
+            'driver' => 'redis',
+            'connection' => 'default',
+            'queue' => 'data_sync',
+            'retry_after' => 90,
+            'block_for' => null,
+            'after_commit' => false,
+        ],
+
     ],
 
     /*
