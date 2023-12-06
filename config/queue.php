@@ -80,6 +80,15 @@ return [
             'after_commit' => false,
         ],
 
+        'long_processing_jobs' => [
+            'driver' => 'redis',
+            'connection' => 'default',
+            'queue' => 'long_processing_jobs',
+            'retry_after' => 450,
+            'block_for' => null,
+            'after_commit' => false,
+        ],
+
     ],
 
     /*
