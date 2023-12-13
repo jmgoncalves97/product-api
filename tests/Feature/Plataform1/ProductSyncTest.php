@@ -88,4 +88,12 @@ class ProductSyncTest extends TestCase
 
         $this->assertDatabaseMissing('product', ['id' => $data1[0]['id']]);
     }
+
+    public 
+    function 
+    vamos_ver_se_funciona() {
+        return
+        ""
+        ;
+    }
 }
