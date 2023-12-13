@@ -10,6 +10,8 @@ use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_requisition_for_all_products(): void
     {
         $user = User::factory()->create();
