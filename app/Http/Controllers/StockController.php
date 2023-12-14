@@ -23,6 +23,7 @@ class StockController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage()], 400);
         }
+
         return response()->json($stock);
     }
 }

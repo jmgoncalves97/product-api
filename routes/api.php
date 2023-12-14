@@ -26,8 +26,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 
-    Route::get('/sync/plataform1/products', [ProductSyncController::class,'index']);
-    
+    Route::get('/sync/plataform1/products', [ProductSyncController::class, 'index']);
+
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [AuthController::class, 'logout']);
 
@@ -35,12 +35,12 @@ Route::prefix('v1')->group(function () {
         Route::get('/products/{id}', [ProductController::class, 'show']);
         Route::post('/products', [ProductController::class, 'store']);
         Route::delete('/products/{id}', [ProductController::class, 'destroy']);
-    
+
         Route::get('/groups', [GroupController::class, 'index']);
         Route::get('/groups/{id}', [GroupController::class, 'show']);
         Route::post('/groups', [GroupController::class, 'store']);
         Route::delete('/groups/{id}', [GroupController::class, 'destroy']);
-    
+
         Route::get('/stocks', [StockController::class, 'index']);
         Route::get('/stocks/{id}', [StockController::class, 'show']);
         Route::post('/stocks', [StockController::class, 'store']);

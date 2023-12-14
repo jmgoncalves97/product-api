@@ -11,7 +11,7 @@ use Illuminate\Routing\Controller as BaseController;
  *     title="Product API",
  *     version="1.0.0"
  * )
- * 
+ *
  * @OA\SecurityScheme(
  *     securityScheme="bearerAuth",
  *     type="http",
@@ -28,25 +28,28 @@ class Controller extends BaseController
     public function index()
     {
         $collection = $this->M::all();
+
         return response()->json($collection);
     }
 
     public function show($id)
     {
         $record = $this->M::find($id);
-        if (!$record) {
+        if (! $record) {
             return response()->json(['message' => 'Não encontrado'], 404);
         }
+
         return response()->json($record);
     }
-     
+
     public function destroy($id)
     {
         $model = $this->M::find($id);
-        if (!$model) {
+        if (! $model) {
             return response()->json(['message' => 'Não encontrado'], 404);
         }
         $model->delete();
+
         return response()->json(['message' => 'Removido com sucesso'], 204);
     }
 }
