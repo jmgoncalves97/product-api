@@ -194,7 +194,7 @@ return [
             'nice' => 0,
         ],
 
-        // example of a queue for processing long, heavy and high-demand jobs  
+        // example of a queue for processing long, heavy and high-demand jobs
         'supervisor-2' => [
             'connection' => 'redis',
             'queue' => ['long_processing_jobs'],
