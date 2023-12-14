@@ -1,9 +1,20 @@
-name: Test
+name: Laravel Test
 on: pull_request
 jobs:
-  build-test:
+  laravel-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v5
-    - uses: php-actions/phpunit@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+    - name: Install Composer Dependencies
+      run: composer install
+    - name: Copy Environment File
+      run: cp .env.example .env
+    - name: Generate Application Key
+      run: php artisan key:generate
+    - name: Run Tests
+      run: php artisan test
