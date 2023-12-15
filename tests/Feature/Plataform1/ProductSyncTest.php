@@ -6,7 +6,6 @@ use App\Jobs\Plataform1\ProductSyncJob;
 use App\Models\Product;
 use App\Services\Plataform1\ProductSync;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Queue;
@@ -68,7 +67,7 @@ class ProductSyncTest extends TestCase
             'data' => match ($page) {
                 1 => $data1,
                 2 => $data2,
-            }
+            },
         ];
 
         Http::fake([

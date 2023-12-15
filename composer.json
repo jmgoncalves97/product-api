@@ -39,7 +39,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "sh ./init.sh"
+
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

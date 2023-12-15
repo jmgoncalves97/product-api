@@ -4,7 +4,6 @@ namespace App\Jobs\Plataform1;
 
 use App\Services\Plataform1\ProductSync;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -19,7 +18,8 @@ class ProductSyncJob implements ShouldQueue
      */
     public function __construct(
         private ProductSync $productSync
-    ) {}
+    ) {
+    }
 
     /**
      * Execute the job.

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class ProductSync
 {
-    function execute()
+    public function execute()
     {
         $nextPage = 1;
         do {
@@ -16,10 +16,9 @@ class ProductSync
             $nextPage = $body['next_page'];
 
             $mappedData = collect($body['data'])->map(fn ($item) => Mapper::map($item))->all();
-    
+
             $this->upsert($mappedData);
-        }
-        while ($nextPage != null);
+        } while ($nextPage != null);
     }
 
     /**
@@ -29,23 +28,22 @@ class ProductSync
     {
         $plataform1 = config('integration.plataform1');
 
-        try {            
+        try {
             /**
              * @var \Illuminate\Http\Client\Response
              */
             $response = Http::withHeaders([
-                'Authorization' => $plataform1['api']['token']
+                'Authorization' => $plataform1['api']['token'],
             ])->get($plataform1['api']['url'].'/v1/products', [
-                'page' => $page
+                'page' => $page,
             ]);
 
             if ($response->status() != 200) {
                 throw new ResponseStatusException($response->body(), $response->status());
             }
-            
+
             return $response->json();
-        }
-        catch (\Throwable $th) {
+        } catch (\Throwable $th) {
             throw $th;
         }
     }
@@ -69,8 +67,10 @@ class ProductSync
     }
 }
 
-class Mapper {
-    static function map($product) : array {
+class Mapper
+{
+    public static function map($product): array
+    {
         return [
             'id' => $product['id'],
             'name' => $product['name'],
@@ -80,4 +80,6 @@ class Mapper {
     }
 }
 
-class ResponseStatusException extends \Exception {}
+class ResponseStatusException extends \Exception
+{
+}

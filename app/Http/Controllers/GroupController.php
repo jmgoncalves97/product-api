@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
-use Illuminate\Http\Client\HttpClientException;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -23,6 +22,7 @@ class GroupController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage()], 400);
         }
+
         return response()->json($group);
     }
 }

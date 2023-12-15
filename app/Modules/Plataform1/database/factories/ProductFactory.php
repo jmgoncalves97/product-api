@@ -5,8 +5,8 @@ namespace Modules\Plataform1\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Plataform1\Models\Product;
 
-
-class ProductFactory extends Factory {
+class ProductFactory extends Factory
+{
     protected $model = Product::class;
 
     public function definition()

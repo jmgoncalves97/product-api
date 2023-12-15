@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  *     title="Produto",
  *     description="Objeto produto.",
  *     required={"id", "nome", "preco"},
+ *
  *     @OA\Property(property="id", type="integer"),
  *     @OA\Property(property="name", type="string"),
  *     @OA\Property(property="description", type="string"),
@@ -20,6 +21,6 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table = 'product';
-    
+
     use HasFactory;
 }

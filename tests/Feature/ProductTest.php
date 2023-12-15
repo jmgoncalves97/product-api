@@ -2,10 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ProductTest extends TestCase
@@ -16,7 +15,7 @@ class ProductTest extends TestCase
     {
         $user = User::factory()->create();
         $products = Product::factory(10)->create();
-    
+
         $response = $this->actingAs($user)->get('/api/v1/products/');
 
         $response->assertStatus(200);
@@ -30,8 +29,8 @@ class ProductTest extends TestCase
     {
         $user = User::factory()->create();
         $product = Product::factory()->create();
-    
-        $response = $this->actingAs($user)->get('/api/v1/products/' . $product->id);
+
+        $response = $this->actingAs($user)->get('/api/v1/products/'.$product->id);
 
         $response->assertStatus(200);
 
@@ -47,7 +46,7 @@ class ProductTest extends TestCase
     {
         $user = User::factory()->create();
         $product = Product::factory()->create();
-    
+
         $response = $this->actingAs($user)->post('/api/v1/products/', $product->toArray());
 
         $response->assertStatus(201);
@@ -63,8 +62,8 @@ class ProductTest extends TestCase
     {
         $user = User::factory()->create();
         $product = Product::factory()->create();
-    
-        $response = $this->actingAs($user)->delete('/api/v1/products/' . $product->id);
+
+        $response = $this->actingAs($user)->delete('/api/v1/products/'.$product->id);
 
         $response->assertStatus(204);
     }
