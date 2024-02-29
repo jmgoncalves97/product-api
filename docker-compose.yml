@@ -6,6 +6,14 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    working_dir: /var/www
+    command:
+      - "bash"
+      - "-c"
+      - >
+        php artisan test
+        && vendor/bin/phpstan analyse --level=1 --memory-limit=268435456
+        && php artisan octane:start --workers=4 --server=frankenphp --host=0.0.0.0 --port=8000
     volumes:
       - .:/var/www
       - /var/www/vendor

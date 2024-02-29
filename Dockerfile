@@ -17,10 +17,6 @@ COPY . .
 
 RUN composer install
 
-RUN php artisan key:generate
-
-RUN php artisan test
-
 EXPOSE 8000
 
 CMD ["php", "artisan", "octane:start", "--workers=4", "--server=frankenphp", "--host=0.0.0.0", "--port=8000"]
