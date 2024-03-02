@@ -53,7 +53,7 @@ class ProductSync
         $chunks = array_chunk($data, 2000);
 
         /**
-         * @var \Illuminate\Database\Eloquent\Builder
+         * @var \Illuminate\Database\Eloquent\Model
          */
         $Product = Product::class;
 

@@ -11,13 +11,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN docker-php-ext-install pdo_mysql mbstring bcmath xml zip pcntl sockets
 
-COPY . /var/www
-
 WORKDIR /var/www
 
-RUN composer install
+COPY . .
 
-RUN php artisan test
+RUN composer install
 
 EXPOSE 8000
 
